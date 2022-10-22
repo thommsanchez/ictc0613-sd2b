@@ -1,4 +1,4 @@
-# ictc0613-DAT2
+# ictc0613-SD2B
 Repository for ICTC0613 codes from SD2B Students (1st Semester, AY 2022-2023)
 
 ##### Guidelines for Use
