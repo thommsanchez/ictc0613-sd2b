@@ -1,5 +1,4 @@
 // Cyril James L. De Guzman SD2B
-package activitysheet04;
 import java.util.Scanner;
 
 public class act04b_sd2b_deguzman {
