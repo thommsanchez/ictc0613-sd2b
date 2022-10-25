@@ -59,7 +59,7 @@ public class act04b_sd2b_deguzman {
             }
         }
         if(isInArray == true) {
-            //Set the value of element to be deleted to 0 then moves the preceeding elements to the 0.
+            //Set the value of element to be deleted to 0 then moves the succeeding elements to the 0.
             arr[findLocationDelete(delElement, arr)] = 0;
             for (int i = findLocationDelete(delElement, arr); i < arr.length; i++) {  
                 for (int j = i + 1; j < arr.length; j++) {           
