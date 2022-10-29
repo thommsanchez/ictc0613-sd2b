@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class act04b_sd2B_ocampo{
+public class act04b_sd2b_ocampo{
 
     static int max= 10;
     static Integer array[] = new Integer[max];
