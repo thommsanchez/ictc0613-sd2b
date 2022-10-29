@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Activity04B_SD2B_Daproza {
+public class activity04B_sd2b_daproza {
     public static Scanner scan = new Scanner(System.in);
     
     public static int InsertLocation(int val, int[] array) {
