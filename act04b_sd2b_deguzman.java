@@ -1,126 +1,160 @@
-// Cyril James L. De Guzman SD2B
-import java.util.Scanner;
 
+import java.util.Scanner;
 public class act04b_sd2b_deguzman {
-    static Scanner scan = new Scanner(System.in);
-    //This method finds the index position of where the element need to be insert.
-    public static int findLocationInsert(int insElement, int[] arr) {
-        int location = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if(arr[i] == 0) {
-                location = i;
-                break;
-            }
-        }
-        return location;
-    }
-    //This method place the element to its designated location.
-    public static void insertItem(int[] arr) {
-        int insElement;
-        System.out.print("Enter element to be inserted: ");
-        insElement = scan.nextInt();
-        arr[findLocationInsert(insElement, arr)] = insElement;
-        //Sorts the array.
-        for (int i = 0; i < arr.length; i++) {  
-            for (int j = i + 1; j < arr.length; j++) { 
-                int tmp = 0;  
-                if (arr[j] == 0) {
-                    break;
+     static Scanner scan = new Scanner(System.in);
+       static int depot, depot2;
+       static String [] arr = new String [5];
+
+
+    //Delete array
+    static boolean findLocationDelete()
+    {
+        int n = 4;
+        System.out.print("Delete an element: ");
+        String remove = scan.nextLine();
+        for (int i=0; i<arr.length; i++)
+        {
+            if (remove.equalsIgnoreCase(arr[i]))
+            {
+                for (int j=i; j<arr.length-1; j++)
+                {
+                    arr[j] = arr[j+1];
                 }
-                else if (arr[i] > arr[j]) {  
-                    tmp = arr[i];  
-                    arr[i] = arr[j];  
-                    arr[j] = tmp;  
-                }  
+                    return true;
+                }
+                arr[n]=null;
+        }           
+        return false;
+    } 
+    
+    
+    // Check if array is full
+    static boolean full()
+    {
+        for (int i = 0; i< depot ; i++)
+        {
+            if (arr[i] == null)
+            {
+                return false;
+            }
+        }  
+        return true;
+    }
+
+    
+    // Check if array empty
+    static boolean empty()
+    {
+        for (int i = 0; i< depot ; i++)
+        {
+            if (arr[i] != null)
+            {
+                return false;
+            }
+        } 
+         return true;
+    }
+    
+    
+    //InsertValue
+    public static void insert()
+    {
+        for (int i = 0; i< depot ; i++)
+        {
+            if (arr [i] == null)
+            {
+                System.out.print("Insert value: " );
+                arr [i]= scan.nextLine();
+                depot2--;
+                     if (0 < depot2){                       
+                         System.out.println("Array is not full ");
+                     }
+                     else {
+                         System.out.println("Array is already full, you can't insert another element");
+                     }     
+                break;
             }  
         }
     }
-    //This method finds the index position of the element to be deleted.
-    public static int findLocationDelete(int value, int[] arr) {
-        int location = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if(arr[i] == value) {
-                location = i;
-                break;
-            }
-        }
-        return location;
-    }
-    //This method deletes the element. Also tells if the element to be deleted is in the array or not.
-    public static void deleteItem(int[] arr) {
-        int delElement;
-        boolean isInArray = false;
-        System.out.print("Enter element to be deleted: ");
-        delElement = scan.nextInt();
-        for (int i = 0; i < arr.length; i++) {
-            if(delElement == arr[i]) {
-                isInArray = true;
-                break;
-            }
-        }
-        if(isInArray == true) {
-            //Set the value of element to be deleted to 0 then moves the succeeding elements to the 0.
-            arr[findLocationDelete(delElement, arr)] = 0;
-            for (int i = findLocationDelete(delElement, arr); i < arr.length; i++) {  
-                for (int j = i + 1; j < arr.length; j++) {           
-                    if(arr[i] == 0) {
-                        arr[i] = arr[j];
-                        arr[j] = 0;
-                    }
-                }
-            }
-            System.out.println("Element " + delElement + " is deleted in the array.");
-        }
-        else {
-            System.out.println("Element " + delElement + " is not in the array.");
+
+    
+    // Traverse method
+    public static void traverse()
+    {     
+        System.out.print("\nThe current array: ");
+        for(int i = 0; i < depot ; i++)
+        if(arr[i] != null)
+        {
+            System.out.print(arr[i] + "  ");
         }
     }
-    public static void main(String[] args) {
-        String choice;
-        int size;
-        System.out.print("Enter size of the array: ");
-        size = scan.nextInt();
-        int[] arr = new int[size];
-        do { 
-            System.out.print("\nArray Basic Operations:" + "\n\t[1] Insert a value." + "\n\t[2] Delete a value"
-                + "\n\t[3] Traverse the array" + "\n\t[4] Exit." + "\n\nEnter your choice: ");
-            choice = scan.next();
-            switch (choice) {
+      
+
+    // Main method 
+    public static void main(String[] args) 
+    {
+        String input;  
+        depot = 5;
+        depot2 = depot;
+        System.out.println("Welcome to  Array Operation!! ");
+        do 
+        {
+            System.out.println("\nChoose an array operation: ");
+            System.out.println("    [1] Insert a value");
+            System.out.println("    [2] Delete a value");
+            System.out.println("    [3] Traverse array");
+            System.out.println("    [4] Exit");
+            System.out.println(" ");
+            System.out.print("Enter your chosen operation: ");
+            input = scan.nextLine();
+            switch (input)
+            {
                 case "1": 
-                    if(arr[size-1] > 0) {
-                        System.out.println("The array is already full!");
-                        break;
+                    if (full() == true)
+                    {
+                    System.out.println("Array is full!"); 
                     }
-                    insertItem(arr); 
-                    break;
+                    else
+                    {
+                    insert();     
+                    }
+                break;
+                
                 case "2":
-                    if(arr[0] == 0) {
-                        System.out.println("The array is empty!");
-                        break;
-                    }
-                    deleteItem(arr); 
-                    break;
-                case "3":
-                    if(arr[0] == 0) {
-                        System.out.println("The array is empty!");
-                    }
-                    else {
-                        //Displays the already sorted array.
-                        System.out.print("The elements of the array: ");
-                        for (int i = 0; i < arr.length; i++) {
-                            if(arr[i] == 0) {
-                                break;
-                            }
-                            System.out.print(arr[i] + "   ");
+                    if (empty() == false)
+                    {
+                        if (findLocationDelete() == true)
+                        {
+                        System.out.println("Successfully deleted  ");
                         }
-                        System.out.print("\n");
+                        else
+                        {
+                        System.out.println("Element is not in the array!");
+                        }
                     }
-                    break;
+                    else
+                    {
+                    System.out.println("\nNo elements added to delete!"); 
+                    }
+                break;
+            
+                case "3":
+                    if (empty() == false)
+                    {
+                    traverse();
+                    }
+                    else
+                    {
+                    System.out.println("\nNo elements added!"); 
+                    }
+                break;
                 case "4":
+                    System.out.println("\nThank you for using the program!");
                     break;
                 default:
-                    break;
+                     System.out.println("Invalid Operation, Please choose operation again\n");
             }
-        } while (!choice.equals("4"));
-    }
+        }  
+                while(!input.equals("4"));
+    } 
 }
