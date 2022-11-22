@@ -24,7 +24,7 @@ public class Act5B_MyLinkedList_DeGuzmanCJ_SD2B {
             data[5] = scan.nextLine();
             System.out.print("Enter age: ");
             data[6] = scan.nextLine();
-            Act5B_DeGuzman_SD2B n = new Act5B_DeGuzman_SD2B(data, null);
+            Act5B_MyLinkedList_DeGuzmanCJ_SD2B n = new Act5B_MyLinkedList_DeGuzmanCJ_SD2B(data, null);
             if(lastNode != null) {
                 lastNode.next = n;
                 lastNode = n;
@@ -35,7 +35,7 @@ public class Act5B_MyLinkedList_DeGuzmanCJ_SD2B {
             }
         }
         
-        Act5B_DeGuzman_SD2B n = firstNode;
+        Act5B_MyLinkedList_DeGuzmanCJ_SD2B n = firstNode;
         while(n != null) {
             System.out.print("\n");
             System.out.printf("\nWelcome to the club %s %s %s!", n.firstName, n.middleName, n.lastName);
@@ -48,9 +48,9 @@ public class Act5B_MyLinkedList_DeGuzmanCJ_SD2B {
     public static Scanner scan = new Scanner(System.in);
     public String firstName, middleName, lastName, areaCode, telNo, gender;
     public int age;
-    public Act5B_DeGuzman_SD2B next; 
-    public static Act5B_DeGuzman_SD2B firstNode, lastNode = null;
-    public Act5B_DeGuzman_SD2B(String[] data, Act5B_DeGuzman_SD2B n) {
+    public Act5B_MyLinkedList_DeGuzmanCJ_SD2B next; 
+    public static Act5B_MyLinkedList_DeGuzmanCJ_SD2B firstNode, lastNode = null;
+    public Act5B_MyLinkedList_DeGuzmanCJ_SD2B(String[] data, Act5B_MyLinkedList_DeGuzmanCJ_SD2B n) {
         firstName = data[0];
         middleName = data[1];
         lastName = data[2];
