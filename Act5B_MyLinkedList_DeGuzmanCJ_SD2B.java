@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Act5B_DeGuzman_SD2B {
+public class Act5B_MyLinkedList_DeGuzmanCJ_SD2B {
     public static void main(String[] args) throws IOException {
         String[] data = new String[7];
         int numNodes;
