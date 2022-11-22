@@ -1,5 +1,5 @@
 // Stack Operations using Linked List for unknown size/lenght
-//  Input is managed by Scanner method
+//  Input is managed by Scanner methods
 
 import java.io.IOException;
 import java.util.Scanner;
